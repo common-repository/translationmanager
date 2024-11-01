@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+@import 'colors';
+
+.settings_page_translationmanager {
+
+  // adding the green background.
+  #wpcontent:before {
+    content:    ' ';
+    position:   absolute;
+    left:       0;
+    top:        0;
+    z-index:    -1;
+    width:      100%;
+    min-height: 400px;
+    background: $color__inpsyde;
+  }
+
+  // sometimes it's very important to use.. !important...
+  // we've to use a strong selector to overwrite the WP-default stuff...
+  .settings__headline {
+    color:     $color__white;
+    font-size: 250% !important;
+    margin:    0;
+    padding:   50px 0 !important;
+  }
+
+  .inpsyde-logo {
+    &__image {
+      float:      right;
+      margin-top: 20px;
+    }
+  }
+
+  // messages
+  .notice, .updated, .error {
+    display: inline-block;
+  }
+}
+
+// Tabs
+.inpsyde-tabs {
+  box-shadow:  0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background:  $color__white;
+  margin:      1.562em 1.25em;
+  margin-left: 0;
+  max-width:   1000px;
+
+  // the current tab navigation item.
+  .ui-tabs-active {
+    border-bottom: 3px solid $color__mine-shaft;
+
+    a {
+      padding-top: 0;
+    }
+  }
+
+  // Connection
+  &--connection {
+    input[type="text"] {
+      width: 75%;
+    }
+  }
+
+  // Support
+  &--support {
+
+    .support-section {
+      margin-bottom: 3.5em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .support-most-asked-questions-list {
+      margin:        0;
+      margin-bottom: 2em;
+    }
+
+    // Documentation link as button.
+    .support-documentation-link {
+      margin: 0;
+
+      a {
+        background-color: $color__inpsyde;
+        color:            $color__white;
+        display:          inline-block;
+        font-size:        .75rem;
+        padding:          .625rem 2rem;
+        text-decoration:  none;
+        text-shadow:      0 -1px 1px $color__inpsyde--dark,
+                          1px 0 1px $color__inpsyde--dark,
+                          0 1px 1px $color__inpsyde--dark,
+                          -1px 0 1px $color__inpsyde--dark;
+        transition:       background-color 100ms linear;
+
+        &:hover {
+          background-color: $color__inpsyde--dark;
+        }
+      }
+    }
+
+    // Form.
+    .support-request-form {
+      label {
+        display:       block;
+        margin-bottom: .63em;
+      }
+
+      label,
+      input[type="text"],
+      input[type="file"],
+      textarea {
+        width: 100%;
+      }
+
+      .support-request-files-wrapper {
+        display: inline-block;
+      }
+
+      .support-request-agreement {
+        margin-bottom: 2em;
+      }
+    }
+  }
+
+  // About
+  &--about {
+    h3 {
+      font-size:  1.4375rem;
+      text-align: center;
+    }
+
+    p {
+      font-size:   1rem;
+      line-height: 1.7;
+      text-align:  center;
+    }
+
+    .eurotext-support {
+      background:      $color__orange;
+      color:           $color__white;
+      font-weight:     bolder;
+      margin-right:    15px;
+      padding:         .75em 3.125em;
+      text-decoration: none;
+      transition:      background-color 100ms linear;
+
+      &:hover {
+        background-color: darken($color__orange, 10%);
+      }
+    }
+
+    .eurotext-logo-translationmanager {
+      margin-right: 15px;
+    }
+
+    .backwpup-banner-img {
+      display:   block;
+      height:    auto;
+      margin:    1.625em auto;
+      max-width: 100%;
+    }
+
+    .eurotext-table {
+      padding: 3em;
+      width:   100%;
+
+      .lefttd {
+        text-align:     right;
+        vertical-align: top;
+        width:          50%;
+      }
+
+      .righttd {
+        text-align: left;
+        width:      50%;
+      }
+    }
+  }
+}
+
+// Tab
+.inpsyde-tab {
+  // The Navigation
+  &__navigation {
+    background: $color__clouds;
+    margin:     0;
+    min-height: 75px;
+
+    &-item {
+      border-bottom: 3px solid transparent;
+      display:       inline-block;
+      font-size:     17px;
+      height:        75px;
+      line-height:   75px;
+      margin-bottom: 0;
+
+      &:hover,
+      &:focus {
+        border-bottom: 3px solid $color__mine-shaft;
+      }
+
+      a {
+        color:           $color__mine-shaft;
+        display:         block;
+        padding:         0 20px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // The Content
+  &__content {
+    padding: 1.562em 1.25em;
+  }
+}
+
+// Footer
+.inpsyde-logo-translationmanager {
+  background:   url('../../resources/img/inpsyde.png') no-repeat;
+  display:      inline-block;
+  height:       25px;
+  line-height:  25px;
+  margin-right: .9375em;
+  margin-top:   .3125em;
+  text-indent:  -9999em;
+  width:        80px;
+}
+
+//
+// MEDIA QUERIES
+//
+
+@media only screen and (min-width: 64em) {
+
+  .inpsyde-tabs {
+
+    // Support.
+    &--support {
+      .support-request-form {
+        label {
+          display:        inline-block;
+          vertical-align: top;
+          width:          10%;
+        }
+
+        label[for="support_request_agreement"] {
+          width: 40%;
+        }
+
+        input[type="text"],
+        textarea,
+        .support-request-files-wrapper {
+          width: 35%;
+        }
+
+        .support-request-files-wrapper {
+          small {
+            display: block;
+          }
+        }
+
+        input[type="submit"],
+        .support-request-agreement {
+          margin-left: 10.4%;
+        }
+      }
+    }
+  }
+
+}
